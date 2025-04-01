@@ -29,7 +29,7 @@ NotesAI能够帮用户实现自动下载和分析提供的多模态（包括音�
 
 2、下载安装DockerDesktop
 
-3、进入video-notes目录下运行docker构建和启动
+3、进入项目根目录下运行docker构建和启动
 ```bash
 docker-compose build
 docker-compose up -d
@@ -45,13 +45,13 @@ http://localhost:8080/api/input
 
 2、下载安装依赖ffmpeg，nodejs
 
-3、进入video-server目录，启动后端项目
+3、进入notes-server目录，启动后端项目
 ```bash
 pip install requirements.txt
 python main.py
 ```
 
-4、进入video-vue目录，启动vue项目
+4、进入notes-vue目录，启动vue项目
 ```bash
 npm install
 npm run serve

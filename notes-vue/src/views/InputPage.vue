@@ -5,7 +5,7 @@
       <input
           type="url"
           v-model="localVideoUrl"
-          placeholder="输入视频 URL (例如 https://www.bilibili.com/video/BV1HG411X78x)"
+          placeholder="输入视频 URL (例如 https://www.bilibili.com/video/xxx)"
           :disabled="store.isLoadingDownload"
           @keyup.enter="startDownload"
       />
