@@ -1,0 +1,12 @@
+fastapi>=0.90.0
+uvicorn[standard]>=0.20.0
+pydantic>=1.10.0
+python-dotenv
+requests
+markdown
+openai
+yt-dlp
+toml
+pandas
+jinja2
+faster_whisper
