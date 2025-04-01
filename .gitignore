@@ -3,6 +3,7 @@ Thumbs.db
 *.iml
 .idea
 
+notes-server/uploads
 notes-vue/node_modules
 
 __pycache__/

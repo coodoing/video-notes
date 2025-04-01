@@ -24,7 +24,7 @@ NotesAI能够帮用户实现自动下载和分析提供的多模态（包括音�
 - vue界面流程清晰，操作方便。
 
 
-## 本地启动运行（docker版）
+## 启动运行（docker版）
 1、clone项目
 
 2、下载安装DockerDesktop
