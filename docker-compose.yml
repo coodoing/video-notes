@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  notes-server:
+    build: ./notes-server
+    container_name: notes-server
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: 1
+    networks:
+      - app-network
+
+  notes-vue:
+    build: ./notes-vue
+    container_name: notes-vue
+    ports:
+      - "8080:8080"
+    depends_on:
+      - notes-server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
