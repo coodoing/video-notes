@@ -58,8 +58,8 @@ const finalStatusMessage = computed(() => {
 const transcript = computed(() => finalResult.value?.transcript || []);
 const videoSourceUrl = computed(() => {
   if (!finalResult.value?.video_source_url) return '';
-  //const url = finalResult.value.video_source_url;
   const url = finalResult.value.video_source_url;
+  // const url = 'http://localhost:8000/video/robot.mp4';//外部cdn存储服务器/本地存储 'http://localhost:8080/robot.mp4';
   // Prepend backend base URL ONLY if it's a relative path served by backend static files
   if (url.startsWith('/static/')) {
     return `${backendUrlBase}${url}`;

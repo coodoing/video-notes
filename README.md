@@ -38,7 +38,7 @@ docker-compose up -d
 
 4、访问页面
 ```bash
-http://localhost:8080/api/input
+http://localhost:8080/
 ```
 
 ## 启动运行（非docker版）
@@ -48,7 +48,7 @@ http://localhost:8080/api/input
 
 3、进入notes-server目录，启动后端项目
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 python main.py
 ```
 

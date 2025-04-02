@@ -10,3 +10,4 @@ toml
 pandas
 jinja2
 faster_whisper
+python-multipart
