@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, HttpUrl
-from typing import Optional
+from typing import List, Optional
 
 
 class UrlRequest(BaseModel):
@@ -41,4 +41,29 @@ class GenerateResponse(BaseModel):
 
 # --- Error Model (Optional but good practice) ---
 class ErrorDetail(BaseModel):
+    detail: str
+
+
+class ProcessUrlRequest(BaseModel):
+    url: HttpUrl
+
+
+class TranscriptSegment(BaseModel):
+    start: float
+    end: float
+    text: str
+
+
+class ProcessResponse(BaseModel):
+    video_id: str
+    # Provide a URL the frontend can use to stream/fetch the video
+    # This might be the original URL if allowed, or a path to a locally served file
+    video_source_url: str
+    transcript: List[TranscriptSegment]
+    brief_summary: str
+    detailed_summary: Optional[str] = None
+    # Add other fields as needed: article, qna_enabled, etc.
+
+
+class ErrorResponse(BaseModel):
     detail: str

@@ -1,7 +1,7 @@
 import subprocess, os
 from yt_dlp import YoutubeDL
 from openai import OpenAI
-import json
+import json, re
 import pandas as pd
 
 from base_config import *
@@ -48,6 +48,47 @@ def generate_srt_by_whispercpp(video_path):
     wav_path = generate_wav(video_path)
     srt = _generate_srt_by_whispercpp(wav_path)
     return srt
+
+
+def parse_srt_to_transcript_segments(whispercpp_srt_path):
+    """
+    将 SRT 字幕文件解析为 TranscriptSegment 格式
+    """
+    """
+    解析 SRT 文件并返回时间戳和文本
+    """
+    pattern = re.compile(r'(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})')
+    segments = []
+
+    with open(whispercpp_srt_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    current_segment = None
+
+    for line in lines:
+        line = line.strip()
+        if pattern.match(line):
+            if current_segment:
+                segments.append(current_segment)
+            start_time, end_time = pattern.findall(line)[0]
+            current_segment = {
+                "start": srt_time_to_seconds(start_time),
+                "end": srt_time_to_seconds(end_time),
+                "text": ""
+            }
+        elif current_segment:
+            current_segment["text"] += line + " "
+
+    if current_segment:
+        segments.append(current_segment)
+
+    return segments
+
+
+def srt_time_to_seconds(time_str):
+    h, m, s = time_str.split(':')
+    s, ms = s.split(',')
+    return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
 
 
 def detect_lang_by_whispercpp(new_wave_path):

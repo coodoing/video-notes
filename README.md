@@ -13,15 +13,16 @@ NotesAI能够帮用户实现自动下载和分析提供的多模态（包括音�
 
 - 项目打包docker部署，用户可一键部署体验。
 
-- 本地CPU也可运行。
+- 界面简洁，操作方便。
 
-- 使用开源yt-dlp下载音视频，支持主流Youtube、B站等视频下载。
+- 支持本地CPU运行。
+
+- 支持主流Youtube、B站、Tiktok、douyin等视频下载。
 
 - **支持调用在线大模型服务（whisper系列）识别音视频内容，支持本地下载开源whisper.cpp/faster-whisper（whisperX）/funasr等模型进行音视频内容识别。**
 
 - **支持接入主流大模型（deepseek-v3、gpt-4o、gemini-2.5等）生成笔记，支持本地部署大模型生成笔记。**
 
-- vue界面流程清晰，操作方便。
 
 
 ## 启动运行（docker版）
@@ -63,20 +64,12 @@ npm run serve
 ## 操作步骤（视频为例）
 ### 1、输入视频地址
 
-<img src="./images/step1.png">
+<img src="./images/onepage_step1.png">
 
-### 2、视频下载
+### 2、视频下载/解析/内容生成
 
-<img src="./images/step2.png">
+<img src="./images/onepage_step2.png">
 
-### 3、字幕内容解析
+### 3、主题及润色
 
-<img src="./images/step3.png">
 
-### 4、生成markdown
-
-<img src="./images/step4.png">
-
-### 5、主题及润色
-
-<img src="./images/step5.png">
